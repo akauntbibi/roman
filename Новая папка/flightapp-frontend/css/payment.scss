@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaijaan|Ubuntu');
+
+$font-main: 'Ubuntu', sans-serif;
+$font-logo: 'Baloo Bhaijaan', cursive;
+$bg-color: #f8f8f8;
+$border-radius: 5px;
+$border-color: #dddddd;
+$primary-color: #2196F3;
+$text-color: #555555;
+$heading-color: #0d3c61;
+$spacing-unit: 20px;
+$padding-unit: 35px;
+$width-payment: 360px;
+
+@function calc-percent($num, $denom) {
+  @return ($num / $denom) * 100%;
+}
+
+@mixin center-block($margin-top: 80px) {
+  margin: $margin-top auto;
+  position: relative;
+}
+
+@mixin border-box($width, $padding: 0) {
+  width: $width;
+  padding: $padding;
+  box-sizing: border-box;
+}
+
+@mixin rounded-border($radius: $border-radius) {
+  border-radius: $radius;
+}
+
+@mixin flex-center($justify: center, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-main;
+}
+
+body {
+  background: rgb(99, 104, 109);
+  margin: 0 calc($spacing-unit / 2);
+}
+
+.payment {
+  @include border-box($width-payment, $padding-unit);
+  @include center-block;
+  @include rounded-border;
+  background: $bg-color;
+  padding-top: calc($padding-unit * 2);
+}
+
+.payment h2 {
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: calc($spacing-unit * 2);
+  color: $heading-color;
+}
+
+.form .label {
+  display: block;
+  color: $text-color;
+  margin-bottom: calc($spacing-unit / 4);
+}
+
+.input {
+  @include rounded-border;
+  padding: 13px 0px 13px 25px;
+  width: 100%;
+  text-align: center;
+  border: 2px solid $border-color;
+  letter-spacing: 1px;
+  word-spacing: 3px;
+  outline: none;
+  font-size: 16px;
+  color: $text-color;
+}
+
+.card-grp {
+  @include flex-center(space-between);
+}
+
+.card-item {
+  width: calc-percent(48, 100);
+}
+
+.space {
+  margin-bottom: $spacing-unit;
+}
+
+.icon-relative {
+  position: relative;
+}
+
+.icon-relative .fas,
+.icon-relative .far {
+  position: absolute;
+  bottom: 12px;
+  left: 15px;
+  font-size: 20px;
+  color: $text-color;
+}
+
+.btn {
+  @include rounded-border;
+  margin-top: calc($spacing-unit * 2);
+  background: $primary-color;
+  padding: 12px;
+  text-align: center;
+  color: $bg-color;
+  cursor: pointer;
+}
+
+.btnn {
+  color: $bg-color;
+  cursor: pointer;
+}
+
+.payment-logo {
+  @include rounded-border(50%);
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  background: $bg-color;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  line-height: 85px;
+}
+
+.payment-logo:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 90px;
+  height: 90px;
+  background: $primary-color;
+  @include rounded-border(50%);
+}
+
+.payment-logo p {
+  position: relative;
+  color: #ffffff;
+  font-family: $font-logo;
+  font-size: 58px;
+}
+
+@media screen and (max-width: 420px){
+  .card-grp{
+    flex-direction: column;
+  }
+  .card-item{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .btn{
+    margin-top: 20px;
+  }
+}

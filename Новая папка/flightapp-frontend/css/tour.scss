@@ -1,0 +1,102 @@
+$transition-duration: 0.6s;
+$font-family: 'Century Gothic', sans-serif;
+$white-color: #fff;
+$black-color: #000;
+$padding-horizontal: 30px;
+$padding-vertical: 10px;
+
+@mixin transition($duration) {
+	transition: $duration ease;
+}
+
+@mixin center-position($top-percentage: 50%, $left-percentage: 50%) {
+	position: absolute;
+	top: $top-percentage;
+	left: $left-percentage;
+	transform: translate(-50%, -50%);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: $font-family;
+}
+
+header {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../1.jpg);
+	height: 100vh;
+	background-size: cover;
+	background-position: center;
+}
+
+ul {
+	float: right;
+	list-style-type: none;
+	margin-top: 20px;
+
+	li {
+		display: inline-block;
+
+		a {
+			@include transition($transition-duration);
+			text-decoration: none;
+			color: $white-color;
+			padding: 5px 20px;
+			border: 1px solid transparent;
+
+			&:hover {
+				background-color: $white-color;
+				color: $black-color;
+			}
+		}
+
+		&.active a {
+			background-color: $white-color;
+			color: $black-color;
+		}
+	}
+}
+
+.title {
+	@include center-position(50%, 50%);
+
+	h1 {
+		color: $white-color;
+		font-size: math.div(75px, 1);
+	}
+}
+
+.button {
+	@include center-position(64%, 50%);
+
+	.btn {
+		@include transition($transition-duration);
+		border: 1px solid $white-color;
+		padding: $padding-vertical $padding-horizontal;
+		color: $white-color;
+		text-decoration: none;
+
+		&:hover {
+			background-color: $white-color;
+			color: $black-color;
+		}
+	}
+}
+
+.buttonn {
+	@include center-position(58%, 50%);
+
+	.btnn {
+		@include transition($transition-duration);
+		border: 1px solid $white-color;
+		padding: $padding-vertical $padding-horizontal;
+		background-color: $white-color;
+		color: $black-color;
+		text-decoration: none;
+
+		&:hover {
+			background-color: transparent;
+			color: $white-color;
+		}
+	}
+}

@@ -1,0 +1,138 @@
+$border-color: #ced4da;
+$text-color: #fff;
+$hover-color: #000;
+$font-size-12px: 12px;
+$transition-duration: 0.5s;
+$input-width: 151px;
+$background-color: rgba(0, 0, 0, 0.5);
+
+@mixin change-box {
+  box-shadow: none;
+  border-radius: 0;
+}
+
+@mixin add-transition($duration: 0.6s, $a: ease) {
+  transition: $duration $a;
+}
+
+@mixin input-style {
+  @include change-box;
+  color: $text-color !important;
+  background: transparent !important;
+}
+
+body {
+  background-image: linear-gradient($background-color, $background-color), url(../1.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.booking-form-box {
+  max-width: 350px;
+  border: 1px solid $border-color;
+  margin: 10% auto 0;
+}
+
+.radio-btn {
+  margin: 0 20px;
+}
+
+.radio-btn .btn {
+  margin: 20px 10px 20px 0;
+  @include change-box;
+}
+
+.radio-btn .btn::after {
+  content: '';
+  height: 15px;
+  width: 15px;
+  top: -2px;
+  left: -1px;
+  background-color: $text-color;
+  position: relative;
+  display: inline-block;
+  border: 3px solid $text-color;
+  visibility: visible;
+  border-radius: 50%;
+}
+
+.radio-btn .btn:checked::after {
+  content: '';
+  background-color: $hover-color;
+  @include add-transition($transition-duration);
+}
+
+.radio-btn span {
+  color: $text-color;
+  margin-right: 5px;
+  font-size: $font-size-12px;
+}
+
+.booking-form {
+  padding: 0 20px 20px;
+}
+
+.booking-form label {
+  margin-bottom: 5px;
+  margin-top: 10px;
+  font-size: $font-size-12px;
+  color: $text-color;
+}
+
+input::placeholder {
+  color: $text-color !important;
+}
+
+.input-grp {
+  width: $input-width;
+  display: inline-block;
+}
+
+.form-control {
+  font-size: $font-size-12px !important;
+  @include input-style;
+}
+
+.select-date::webkit-inner-spin-button,
+.select-date::webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.select-date::webkit-calender-picker-indicator {
+  background: transparent !important;
+}
+
+.custom-select {
+  @include input-style;
+  border: 1px solid $border-color !important;
+}
+
+.custom-select option {
+  color: #333;
+}
+
+.flight {
+  width: 100%;
+  padding: 9px 0;
+  font-size: $font-size-12px;
+  border: 1px solid $border-color !important;
+  @include input-style;
+}
+
+.btnn {
+  color: $text-color;
+  text-decoration: none;
+  @include add-transition(0.6s, ease);
+}
+
+.btnn:hover {
+  background: transparent;
+  color: $hover-color;
+}
+
+.flight:hover {
+  background: $text-color !important;
+  color: $hover-color !important;
+  @include add-transition($transition-duration);
+}

@@ -1,0 +1,152 @@
+$primary-color: #ec1362;
+$text-color: white;
+$bg-overlay: rgba(0, 0, 0, 0.5);
+$shadow-color: rgba(0, 0, 0, 0.5);
+$transition-speed: 0.6s;
+
+@function transition($property, $time: 0.3s, $type: ease-in-out) {
+  @return #{$property} #{$time} #{$type};
+}
+
+@mixin bg-overlay($image, $overlay-color: $bg-overlay) {
+  background-image: linear-gradient($overlay-color, $overlay-color), url($image);
+  background-size: cover;
+  background-position: top;
+}
+
+@mixin flex-center($flex-wrap: nowrap) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: $flex-wrap;
+}
+
+@mixin button-styles($bg-color: $primary-color, $text-color: $text-color, $hover-color: darken($bg-color, 10%)) {
+  background-color: $bg-color;
+  color: $text-color;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 25px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transition(all, 0.2s);
+
+  &:hover {
+    background-color: $hover-color;
+    box-shadow: 0 2px 15px 0px $shadow-color;
+    transform: translateY(-3px);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Century Gothic', sans-serif;
+}
+
+header {
+  @include bg-overlay('../1.jpg');
+  height: 10vh;
+  margin-bottom: 50px;
+}
+
+.main {
+  > ul {
+    float: right;
+    list-style-type: none;
+    margin-top: 20px;
+
+    li {
+      display: inline-block;
+
+      a {
+        text-decoration: none;
+        color: $text-color;
+        padding: 5px 20px;
+        border: 1px solid transparent;
+        transition: transition(background-color, $transition-speed);
+
+        &:hover,
+        &.active {
+          background-color: $text-color;
+          color: black;
+        }
+      }
+    }
+  }
+}
+
+body {
+  @include bg-overlay('../1.jpg');
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 50px;
+}
+
+h1 {
+  color: $text-color;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.container {
+  @include flex-center(wrap);
+}
+
+.pricing-box {
+  background-color: #fff;
+  box-shadow: 0 2px 15px 0px $shadow-color;
+  flex: 1;
+  padding: 0 30px 30px;
+  margin: 2%;
+  min-width: 250px;
+  max-width: 350px;
+  border-radius: 15px;
+
+  h5 {
+    text-transform: uppercase;
+  }
+
+  .price {
+    margin: 24px 0;
+    font-size: 36px;
+    font-weight: 900;
+
+    sub,
+    sup {
+      font-size: 16px;
+      font-weight: 100;
+    }
+  }
+
+  .feature-list {
+    padding: 0;
+    list-style-type: none;
+
+    li {
+      font-weight: 100;
+      padding: 12px 0;
+
+      &:not(:last-of-type) {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}
+
+.btn-primary {
+  @include button-styles;
+}
+
+.btnn {
+  color: $text-color;
+  text-decoration: none;
+  transition: transition(all, $transition-speed);
+
+  &:hover {
+    background: transparent;
+    color: $text-color;
+  }
+}

@@ -1,0 +1,184 @@
+$font-family: 'lato', sans-serif;
+$primary-color: #f50629;
+$secondary-color: #fd9d08;
+$text-color: rgba(0, 0, 0, 0.4);
+$link-color: #000;
+$focus-color: #0f7ef1;
+$button-gradient: linear-gradient(to right, $primary-color 0%, $secondary-color 100%);
+$transition-duration: 1s;
+$border-radius: 4px;
+$border-color: #ddd;
+$input-padding: 16px;
+$input-height: 46px;
+
+@mixin display($direction: row, $wrap: nowrap) {
+  display: flex;
+  justify-content: center;
+  flex-wrap: $wrap;
+  flex-direction: $direction;
+}
+
+@mixin animation-name-duration-fillmode-delay($anim-name, $anim-duration: 1s, $fill-mode: both, $anim-delay: 1s) {
+  animation-name: $anim-name;
+  animation-duration: $anim-duration;
+  animation-fill-mode: $fill-mode;
+  animation-delay: $anim-delay;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.lefts {
+  @include display(column, wrap);
+  overflow: hidden;
+  @include animation-name-duration-fillmode-delay(left-section);
+}
+
+.rights {
+  flex: 1;
+  transition: $transition-duration;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.header {
+  h1 {
+    margin: 0;
+    color: $primary-color;
+  }
+
+  h4 {
+    margin-top: 10px;
+    color: $text-color;
+    font-size: 15px;
+    font-weight: normal;
+  }
+}
+
+.form {
+  max-width: 80%;
+  @include display(column);
+
+  p {
+    text-align: right;
+
+    a {
+      color: $link-color;
+      font-size: 14px;
+    }
+  }
+
+  .form-field {
+    height: $input-height;
+    padding: 0 $input-padding;
+    border: 2px solid $border-color;
+    border-radius: $border-radius;
+    outline: none;
+    transition: 0.2s;
+    margin-top: 20px;
+
+    &:focus {
+      border-color: $focus-color;
+    }
+  }
+
+  h4, label {
+    margin-top: 10px;
+    color: $text-color;
+    font-size: 15px;
+    font-weight: normal;
+  }
+
+  button {
+    padding: 12px 10px;
+    border: 0;
+    background: $button-gradient;
+    border-radius: 3px;
+    margin-top: 10px;
+    color: #fff;
+    letter-spacing: 1px;
+    cursor: pointer;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 20px;
+    border: 1px solid transparent;
+    transition: 0.6s ease;
+  }
+}
+
+.animation {
+  @include animation-name-duration-fillmode-delay(move);
+}
+
+.a1 {
+	animation-delay: 2s;
+}
+.a2 {
+	animation-delay: 2.1s;
+}
+.a3 {
+	animation-delay: 2.2s;
+}
+.a4 {
+	animation-delay: 2.3s;
+}
+.a5 {
+	animation-delay: 2.4s;
+}
+.a6 {
+	animation-delay: 2.5s;
+}
+.a7 {
+	animation-delay: 2.6s;
+}
+.a8 {
+	animation-delay: 2.7s;
+}
+.a9 {
+	animation-delay: 2.5s;
+}
+
+.btnn {
+  color: white;
+}
+
+@keyframes move{
+	0%{
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-40px);
+	}
+	100%{
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+}
+@keyframes left-section{
+	0%{
+		opacity: 0;
+		width: 0;
+	}
+	100%{
+		opacity: 1;
+		padding: 20px 40px;
+		width: 440px
+	}
+}

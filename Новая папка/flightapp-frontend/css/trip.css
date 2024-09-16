@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Century Gothic", sans-serif;
+}
+
+header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../1.jpg");
+  background-size: cover;
+  background-position: top;
+  height: 10vh;
+  margin-bottom: 50px;
+}
+
+.main > ul {
+  float: right;
+  list-style-type: none;
+  margin-top: 20px;
+}
+.main > ul li {
+  display: inline-block;
+}
+.main > ul li a {
+  text-decoration: none;
+  color: white;
+  padding: 5px 20px;
+  border: 1px solid transparent;
+  transition: background-color 0.6s ease-in-out;
+}
+.main > ul li a:hover, .main > ul li a.active {
+  background-color: white;
+  color: black;
+}
+
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../1.jpg");
+  background-size: cover;
+  background-position: top;
+  font-family: "Lato", sans-serif;
+  margin-bottom: 50px;
+}
+
+h1 {
+  color: white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.pricing-box {
+  background-color: #fff;
+  box-shadow: 0 2px 15px 0px rgba(0, 0, 0, 0.5);
+  flex: 1;
+  padding: 0 30px 30px;
+  margin: 2%;
+  min-width: 250px;
+  max-width: 350px;
+  border-radius: 15px;
+}
+.pricing-box h5 {
+  text-transform: uppercase;
+}
+.pricing-box .price {
+  margin: 24px 0;
+  font-size: 36px;
+  font-weight: 900;
+}
+.pricing-box .price sub,
+.pricing-box .price sup {
+  font-size: 16px;
+  font-weight: 100;
+}
+.pricing-box .feature-list {
+  padding: 0;
+  list-style-type: none;
+}
+.pricing-box .feature-list li {
+  font-weight: 100;
+  padding: 12px 0;
+}
+.pricing-box .feature-list li:not(:last-of-type) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background-color: #ec1362;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 25px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.btn-primary:hover {
+  background-color: #bd0f4e;
+  box-shadow: 0 2px 15px 0px rgba(0, 0, 0, 0.5);
+  transform: translateY(-3px);
+}
+
+.btnn {
+  color: white;
+  text-decoration: none;
+  transition: all 0.6s ease-in-out;
+}
+.btnn:hover {
+  background: transparent;
+  color: white;
+}/*# sourceMappingURL=trip.css.map */
